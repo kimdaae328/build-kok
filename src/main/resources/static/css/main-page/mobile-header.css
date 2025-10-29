@@ -168,9 +168,8 @@
     bottom: 0;
     flex-direction: column;
     z-index: 10000;
-    width: 280px;
+    width: 100%;
     position: fixed;
-    background: #ffffff;
     outline: none;
     display: flex;
 }
@@ -195,6 +194,8 @@
     gap: 12px;
     height: 100%;
     display: flex;
+    background-color: #fff;
+    width: 85%;
 }
 .sidebar-list-logo-section {
     flex-direction: column;
