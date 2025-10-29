@@ -59,6 +59,8 @@ document.addEventListener("click", async (e) => {
 
     for (let i = 0; i < urls.length; i++) {
         const url = urls[i];
+
+        console.log("파일 url 주소 확인: ",url)
         try {
             const response = await fetch(url);
             if (!response.ok) throw new Error(`Failed to fetch: ${url}`);
