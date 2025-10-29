@@ -130,11 +130,11 @@
     .top-right-button.avatar {
         background-color: #ccc;
         border-radius: 50%;
-        padding: 5px;
         cursor: pointer;
         width: 32px;
         height: 32px;
-        padding: 6px;
+        padding: 0;
+        overflow: hidden;
     }
 
     .top-right-button-text {
