@@ -192,6 +192,7 @@
         gap: 12px;
         height: 100%;
         display: flex;
+        z-index: 9999;
     }
 
     .sidebar-list-profile-section {
