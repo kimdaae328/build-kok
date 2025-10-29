@@ -1,9 +1,9 @@
 const topLeftBtns = document.querySelectorAll(".top-left");
 const mobileSidebar = document.querySelector(".mobile-sidebar");
 
-// const overlay = document.createElement("div");
-// overlay.classList.add("sidebar-overlay");
-// mobileSidebar.appendChild(overlay);
+const overlay = document.createElement("div");
+overlay.classList.add("sidebar-overlay");
+mobileSidebar.appendChild(overlay);
 
 topLeftBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
