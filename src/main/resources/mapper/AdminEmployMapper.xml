@@ -100,6 +100,7 @@
 
     <!--  인턴 공고 상세정보(2) 개수  -->
     <select id="countRequestUser">
+
         select count(*)
         from tbl_request_intern ri
                  join tbl_intern_notice tin
