@@ -158,7 +158,7 @@ function parseYmd(str) {
 }
 
 // 팝업 등록 및 수정 확인
-btnSubmit.addEventListener("click", async () => {
+btnSubmit.addEventListener("click",  () => {
     const isValid = formValidate();
     const jobCategoryId = document.querySelector("input[name=jobCategoryId]");
     const exForm = document.querySelector("#ex-form");
