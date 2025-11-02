@@ -43,7 +43,7 @@ public class InternRestController implements InternRestControllerDocs {
     public String profile(Long companyId){
         CompanyProfileFileDTO profile=companyProfileFileDAO.findFileByCompanyId(companyId);
         if(profile==null){
-            return "/images/main-page/image.png";
+            return "/images/member/profile.png";
         }
         internNoticeService.setPreSignedUrl(profile);
         return profile.getFilePath();
@@ -139,16 +139,17 @@ public class InternRestController implements InternRestControllerDocs {
         return false;
     }
 
-//    간편지원 완료
+    //    간편지원 완료
     @PostMapping("/request")
     public void requestIntern(@RequestBody RequestInternDTO requestInternDTO,
-                                  @AuthenticationPrincipal CustomUserDetails customUserDetails) {
+                              @AuthenticationPrincipal CustomUserDetails customUserDetails) {
 //        System.out.println(requestInternDTO);
 //        System.out.println(customUserDetails.getId());
         RequestInternDTO request=new RequestInternDTO();
         request.setRequestInternMemberName(requestInternDTO.getRequestInternMemberName());
         request.setRequestInternMemberEmail(requestInternDTO.getRequestInternMemberEmail());
         request.setRequestInternMemberPhone(requestInternDTO.getRequestInternMemberPhone());
+        request.setEvaluationId(requestInternDTO.getEvaluationId());
         if(requestInternDTO.getRequestInternMemberUrl()!=null){
             request.setRequestInternMemberUrl(requestInternDTO.getRequestInternMemberUrl());
         }
@@ -160,9 +161,9 @@ public class InternRestController implements InternRestControllerDocs {
     }
 
 //    평가 있는지 여부
-    @GetMapping("/id-reviewed")
-    public ResponseEntity<Boolean> isRequested(@AuthenticationPrincipal CustomUserDetails customUserDetails) {
-        boolean result=evaluationService.isReviewed(customUserDetails.getId());
-        return ResponseEntity.ok(result);
+    @GetMapping("/is-reviewed")
+    public boolean isRequested(@AuthenticationPrincipal CustomUserDetails customUserDetails) {
+        boolean result = evaluationService.isReviewed(customUserDetails.getId());
+        return result;
     }
 }

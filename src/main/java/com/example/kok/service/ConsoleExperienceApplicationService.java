@@ -20,7 +20,7 @@ public interface ConsoleExperienceApplicationService {
     RequestDownloadUrlDTO getApplicationFileInfo(List<Long> memberIdList, Long experienceNoticeId);
 
 //    평가하기 가능 여부 조회
-    public boolean isEvalOk(Long experienceNoticeId, Long memberId);
+    public boolean isEvalOk(Long experienceNoticeId, Long memberId, Long requestExperienceId);
 
 //    지원자 상태 변경
     public void updateApplicantStatus(Long userId, Long experienceNoticeId, RequestStatus requestStatus);

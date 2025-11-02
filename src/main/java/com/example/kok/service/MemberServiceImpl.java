@@ -117,7 +117,7 @@ public class MemberServiceImpl implements MemberService {
         return adminMemberCriteriaDTO;
     }
 
-    //    회원 아이디로 조회
+//    회원 아이디로 조회
     @Override
     @Cacheable(value = "member", key = "'member_' + #memberId")
     public UserMemberDTO findMembersByMemberId(Long memberId) {
