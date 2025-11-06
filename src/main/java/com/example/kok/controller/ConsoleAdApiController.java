@@ -24,9 +24,16 @@ public class ConsoleAdApiController implements ConsoleAdApiControllerDocs {
     public ResponseEntity<ConsoleAdNoticeCriteriaDTO> list(@PathVariable("companyId") Long companyId,
                                   @PathVariable("page") int page,
                                   @RequestParam(required = false) String keyword) {
+        log.info("📥 광고 리스트 요청: companyId={}, page={}, keyword={}", companyId, page, keyword);
 
         ConsoleAdNoticeCriteriaDTO adCriteriaDTO = adService.getList(companyId, page, keyword);
-        if (adCriteriaDTO == null || adCriteriaDTO.getAdLists().size() == 0) {
+        if (adCriteriaDTO == null) {
+            log.warn("⚠️ adCriteriaDTO is null!");
+            return ResponseEntity.ok(new ConsoleAdNoticeCriteriaDTO());
+        }
+
+        if (adCriteriaDTO.getAdLists() == null || adCriteriaDTO.getAdLists().isEmpty()) {
+            log.info("📭 광고 리스트 없음");
             return ResponseEntity.ok(adCriteriaDTO);
         }
 

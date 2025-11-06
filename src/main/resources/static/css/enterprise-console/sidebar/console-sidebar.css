@@ -403,7 +403,7 @@ svg.svg-right{
 }
 
 div.exp-wrap{
-    padding: 8px;
+    /*padding: 8px;*/
     flex-direction: column;
     min-width: 0px;
     width: 100%;
